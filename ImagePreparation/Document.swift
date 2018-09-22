@@ -7,12 +7,17 @@
 //
 
 import Cocoa
+import SSZipArchive
 
 class Document: NSDocument {
-
+    
+    var impSet:IMPSet
+    
     override init() {
+        let workFolder = FileHelper.workFolderURL()
+        let imageFolder = FileHelper.workImagesUrl(workFolder: workFolder)
+        impSet = IMPSet(workFolder: workFolder, imageFolder: imageFolder, annotations: Annotations(path: [], annotations: []))
         super.init()
-        // Add your subclass-specific initialization here.
     }
 
     override class var autosavesInPlace: Bool {
@@ -21,24 +26,35 @@ class Document: NSDocument {
 
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let windowController = storyboard.instantiateController(withIdentifier: "Document Window Controller") as! NSWindowController
         self.addWindowController(windowController)
+        // Set represented object of ViewController
+        if let viewController: ViewController = windowController.contentViewController as! ViewController? {
+            viewController.representedObject = self
+            viewController.select(index: 0)
+        }
+    }
+    
+    override func write(to url: URL, ofType typeName: String) throws {
+        try JSONEncoder().encode(impSet.annotations).write(to: FileHelper.annotationsUrl(workFolder: impSet.workFolder))
+        SSZipArchive.createZipFile(atPath: url.path, withContentsOfDirectory: impSet.workFolder.path)
+    }
+    
+    override func read(from url: URL, ofType typeName: String) throws {
+        SSZipArchive.unzipFile(atPath: url.path, toDestination: impSet.workFolder.path)
+        guard FileManager.default.fileExists(atPath: impSet.imageFolder.path) else {
+            try? FileManager.default.removeItem(at: impSet.workFolder)
+            throw NSError(domain: NSCocoaErrorDomain, code: NSFileReadUnsupportedSchemeError, userInfo: nil)
+        }
+        let jsonUrl = FileHelper.annotationsUrl(workFolder: impSet.workFolder)
+        let annotations:Annotations = try JSONDecoder().decode(Annotations.self, from: Data(contentsOf: jsonUrl))
+        impSet.annotations = annotations
     }
 
-    override func data(ofType typeName: String) throws -> Data {
-        // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
-        // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+    override func close() {
+        super.close()
+        try? FileManager.default.removeItem(at: impSet.workFolder)
     }
-
-    override func read(from data: Data, ofType typeName: String) throws {
-        // Insert code here to read your document from the given data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning false.
-        // You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
-        // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
-        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-    }
-
-
 }
 

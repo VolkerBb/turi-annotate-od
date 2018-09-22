@@ -14,8 +14,7 @@ extension ViewController {
         guard let window = self.view.window else {
             return
         }
-        let openPanel = NSOpenPanel()
-        openPanel.canChooseDirectories = true
+        let openPanel = folderOpenPanel()
         openPanel.beginSheetModal(for: window) { (response) in
             switch response {
             case NSApplication.ModalResponse.OK:
@@ -26,10 +25,44 @@ extension ViewController {
         }
     }
     
+    @IBAction func exportML(_ sender: Any?) {
+        guard let window = self.view.window else {
+            return
+        }
+        let openPanel = folderOpenPanel()
+        openPanel.canCreateDirectories = true
+        openPanel.beginSheetModal(for: window) { (response) in
+            switch response {
+            case NSApplication.ModalResponse.OK:
+                self.exportML(toUrl: openPanel.urls.first)
+            default:
+                break
+            }
+        }
+    }
+    
+    private func exportML(toUrl url: URL?) {
+        guard let url = url,
+            let impSet = document?.impSet else {
+            return
+        }
+        document?.save(self)
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        try? encoder.encode(impSet.annotations).write(to: FileHelper.annotationsUrl(workFolder: impSet.workFolder))
+        var exportUrl = url.appendingPathComponent(AppConfiguration.mlExportDirName)
+        var count = 2
+        while FileManager.default.fileExists(atPath: exportUrl.path) {
+            exportUrl = url.appendingPathComponent(String(format: "%@_%li", AppConfiguration.mlExportDirName, count))
+            count = count + 1
+        }
+        try? FileManager.default.copyItem(at: impSet.workFolder, to: exportUrl)
+    }
+    
     private func importImages(fromUrl url: URL?) {
         guard let url = url,
             let _ = document?.impSet else {
-                return
+            return
         }
         addNormalizedImages(url: url)
         if document?.impSet.annotations.path.count ?? 0 > 0 {
@@ -71,4 +104,10 @@ extension ViewController {
         document?.impSet.annotations.path.append(contentsOf: mlPaths)
     }
     
+    private func folderOpenPanel() -> NSOpenPanel {
+        let openPanel = NSOpenPanel()
+        openPanel.canChooseDirectories = true
+        openPanel.canChooseFiles = false
+        return openPanel
+    }
 }

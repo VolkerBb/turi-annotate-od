@@ -110,9 +110,9 @@
                                                 <action selector="importImages:" target="Ady-hI-5gd" id="cek-7Y-qaX"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Export ML Data..." keyEquivalent="m" id="aTl-1u-JFS">
+                                        <menuItem title="Export ML Data..." keyEquivalent="M" id="aTl-1u-JFS">
                                             <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
+                                                <action selector="exportML:" target="Ady-hI-5gd" id="BGF-TT-8rf"/>
                                             </connections>
                                         </menuItem>
                                     </items>

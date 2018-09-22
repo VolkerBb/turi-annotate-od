@@ -12,4 +12,5 @@ struct AppConfiguration {
     static let normalizedBaseSizeInPixels:CGFloat = 500.0
     static let defaultLabel = "Unknown"
     static let appName = "ImagePreparation"
+    static let mlExportDirName = "MLExport"
 }

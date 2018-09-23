@@ -105,8 +105,9 @@ extension ViewController {
             resized.writeToFile(file: targetImageUrl, usingType: .jpeg)
             let mlPath:String = targetImageUrl.pathComponents.suffix(2).joined(separator: "/")
             mlPaths.append(mlPath)
-            let coordinates = Coordinates(width: Double(targetSize.width), height: Double(targetSize.height),
-                                          x: Double(targetSize.width) / 2.0, y: Double(targetSize.height) / 2.0)
+            let pixelSize = resized.pixelSize()
+            let coordinates = Coordinates(width: Double(pixelSize.width), height: Double(pixelSize.height),
+                                          x: Double(pixelSize.width) / 2.0, y: Double(pixelSize.height) / 2.0)
             let annotation = Annotation(coordinates: coordinates, label: AppConfiguration.defaultLabel)
             annotationList.append(annotation)
         }

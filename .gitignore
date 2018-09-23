@@ -4,4 +4,5 @@ xcuserdata
 docset/
 lib/
 Pods
+*.xcworkspace
 Podfile.lock

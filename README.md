@@ -13,7 +13,7 @@ Open the created workspace in Xcode 10 on your Mac and build and run the ImagePr
 
 ## Usage
 
-After starting up, you'll see an empty window. You can import your images now by selecting ````File -> Import Pictures...```.
+After starting up, you'll see an empty window. You can import your images now by selecting ```File -> Import Pictures...```.
 For each imported picture you can now draw a bounding box and enter a label in the text field. You can save and open your ongoing work
 as 'mlp' files. When you're ready to go, you can select ```File -> Export ML Data...```. 
 This will export your work in a folder called MLExport. In addition, it will add a python script and [Jupyter Notebook](http://jupyter.org) file.

@@ -41,10 +41,11 @@ class ViewController: NSViewController, DrawViewDelegate {
         textField.stringValue = annotation.label
         
         let imageRect = self.imageView.photoRectInImageView()
+        let pixelSize = image.pixelSize()
         
-        let scale = Double(image.size.width / imageRect.size.width)
+        let scale = Double(pixelSize.width / imageRect.size.width)
         let oX = annotation.coordinates.x / scale
-        let oY = (Double(image.size.height) - annotation.coordinates.y) / scale
+        let oY = (Double(pixelSize.height) - annotation.coordinates.y) / scale
         let oWidth = annotation.coordinates.width / scale
         let oHeight = annotation.coordinates.height / scale
         
@@ -113,7 +114,8 @@ class ViewController: NSViewController, DrawViewDelegate {
         let imageRect = imageView.photoRectInImageView()
         let pX = Double(rect.origin.x - imageRect.origin.x)
         let pY = Double(rect.origin.y - imageRect.origin.y)
-        let scale = Double(image.size.width / imageRect.size.width)
+        let pixelSize = image.pixelSize()
+        let scale = Double(pixelSize.width / imageRect.size.width)
         let mlX = pX * scale
         let mlY = pY * scale
         let mlWidth = Double(rect.width) * scale
@@ -123,7 +125,7 @@ class ViewController: NSViewController, DrawViewDelegate {
         document?.impSet.annotations.annotations[currentIndex].coordinates.height = mlHeight
         document?.impSet.annotations.annotations[currentIndex].coordinates.width = mlWidth
         document?.impSet.annotations.annotations[currentIndex].coordinates.x = mlCenterX
-        document?.impSet.annotations.annotations[currentIndex].coordinates.y = Double(image.size.height) - mlCenterY
+        document?.impSet.annotations.annotations[currentIndex].coordinates.y = Double(pixelSize.height) - mlCenterY
     }
     
     func select(index: Int) {

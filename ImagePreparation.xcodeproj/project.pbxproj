@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DA24DA9D21569932006E3FE0 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA24DA9C21569932006E3FE0 /* FileHelper.swift */; };
 		DA24DA9F2156C838006E3FE0 /* ViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA24DA9E2156C838006E3FE0 /* ViewController+Actions.swift */; };
+		DA24DAA5215781E4006E3FE0 /* MLCreate.ipynb in Resources */ = {isa = PBXBuildFile; fileRef = DA24DAA3215781E3006E3FE0 /* MLCreate.ipynb */; };
+		DA24DAA6215781E4006E3FE0 /* MLCreate.py in Resources */ = {isa = PBXBuildFile; fileRef = DA24DAA4215781E3006E3FE0 /* MLCreate.py */; };
 		DA4E7D4A21568CA500A8F73C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D4921568CA500A8F73C /* AppDelegate.swift */; };
 		DA4E7D4C21568CA500A8F73C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D4B21568CA500A8F73C /* ViewController.swift */; };
 		DA4E7D4E21568CA500A8F73C /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D4D21568CA500A8F73C /* Document.swift */; };
@@ -18,7 +20,7 @@
 		DA4E7D6A21568CA700A8F73C /* ImagePreparationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D6921568CA700A8F73C /* ImagePreparationUITests.swift */; };
 		DA4E7D7D21568D8D00A8F73C /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D7C21568D8D00A8F73C /* DrawView.swift */; };
 		DA4E7D8121568DA200A8F73C /* NSImage+PhotoRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D7F21568DA200A8F73C /* NSImage+PhotoRect.swift */; };
-		DA4E7D8221568DA200A8F73C /* NSImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D8021568DA200A8F73C /* NSImage+Resize.swift */; };
+		DA4E7D8221568DA200A8F73C /* NSImage+Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D8021568DA200A8F73C /* NSImage+Tools.swift */; };
 		DA4E7D8421568DB100A8F73C /* Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D8321568DB100A8F73C /* Annotations.swift */; };
 		DA4E7D8621568DB800A8F73C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D8521568DB700A8F73C /* AppConfiguration.swift */; };
 		DA4E7D882156915300A8F73C /* IMPSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E7D872156915300A8F73C /* IMPSet.swift */; };
@@ -48,6 +50,8 @@
 		ACEE2D56CD1B20C25B5E668A /* Pods-ImagePreparation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImagePreparation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImagePreparation/Pods-ImagePreparation.release.xcconfig"; sourceTree = "<group>"; };
 		DA24DA9C21569932006E3FE0 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		DA24DA9E2156C838006E3FE0 /* ViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Actions.swift"; sourceTree = "<group>"; };
+		DA24DAA3215781E3006E3FE0 /* MLCreate.ipynb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MLCreate.ipynb; sourceTree = "<group>"; };
+		DA24DAA4215781E3006E3FE0 /* MLCreate.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = MLCreate.py; sourceTree = "<group>"; };
 		DA4E7D4621568CA500A8F73C /* ImagePreparation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePreparation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4E7D4921568CA500A8F73C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA4E7D4B21568CA500A8F73C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		DA4E7D6B21568CA700A8F73C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4E7D7C21568D8D00A8F73C /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		DA4E7D7F21568DA200A8F73C /* NSImage+PhotoRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+PhotoRect.swift"; sourceTree = "<group>"; };
-		DA4E7D8021568DA200A8F73C /* NSImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Resize.swift"; sourceTree = "<group>"; };
+		DA4E7D8021568DA200A8F73C /* NSImage+Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Tools.swift"; sourceTree = "<group>"; };
 		DA4E7D8321568DB100A8F73C /* Annotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
 		DA4E7D8521568DB700A8F73C /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		DA4E7D872156915300A8F73C /* IMPSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMPSet.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				DA4E7D7E21568D9000A8F73C /* Tools */,
 				DA4E7D4F21568CA700A8F73C /* Assets.xcassets */,
 				DA4E7D5421568CA700A8F73C /* Info.plist */,
+				DA24DAA3215781E3006E3FE0 /* MLCreate.ipynb */,
+				DA24DAA4215781E3006E3FE0 /* MLCreate.py */,
 				DA4E7D5521568CA700A8F73C /* ImagePreparation.entitlements */,
 			);
 			path = ImagePreparation;
@@ -201,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				DA4E7D7F21568DA200A8F73C /* NSImage+PhotoRect.swift */,
-				DA4E7D8021568DA200A8F73C /* NSImage+Resize.swift */,
+				DA4E7D8021568DA200A8F73C /* NSImage+Tools.swift */,
 				DA24DA9C21569932006E3FE0 /* FileHelper.swift */,
 			);
 			path = Tools;
@@ -318,6 +324,8 @@
 			files = (
 				DA4E7D5021568CA700A8F73C /* Assets.xcassets in Resources */,
 				DA4E7D5321568CA700A8F73C /* Main.storyboard in Resources */,
+				DA24DAA5215781E4006E3FE0 /* MLCreate.ipynb in Resources */,
+				DA24DAA6215781E4006E3FE0 /* MLCreate.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +395,7 @@
 				DA4E7D8421568DB100A8F73C /* Annotations.swift in Sources */,
 				DA4E7D8121568DA200A8F73C /* NSImage+PhotoRect.swift in Sources */,
 				DA4E7D4A21568CA500A8F73C /* AppDelegate.swift in Sources */,
-				DA4E7D8221568DA200A8F73C /* NSImage+Resize.swift in Sources */,
+				DA4E7D8221568DA200A8F73C /* NSImage+Tools.swift in Sources */,
 				DA24DA9F2156C838006E3FE0 /* ViewController+Actions.swift in Sources */,
 				DA4E7D4E21568CA500A8F73C /* Document.swift in Sources */,
 				DA4E7D882156915300A8F73C /* IMPSet.swift in Sources */,

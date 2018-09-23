@@ -57,6 +57,16 @@ extension ViewController {
             count = count + 1
         }
         try? FileManager.default.copyItem(at: impSet.workFolder, to: exportUrl)
+        copy(resource: "MLCreate", pathExtension: "ipynb", exportURL: exportUrl)
+        copy(resource: "MLCreate", pathExtension: "py", exportURL: exportUrl)
+    }
+    
+    private func copy(resource: String, pathExtension: String, exportURL: URL) {
+        guard let url = Bundle.main.url(forResource: resource, withExtension: pathExtension) else {
+            return
+        }
+        let targetUrl = exportURL.appendingPathComponent(resource).appendingPathExtension(pathExtension)
+        try? FileManager.default.copyItem(at: url, to: targetUrl)
     }
     
     private func importImages(fromUrl url: URL?) {

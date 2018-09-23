@@ -30,4 +30,12 @@ extension NSImage {
         try? fileData.write(to: file)
     }
     
+    func pixelSize() -> NSSize {
+        guard let h = representations.first?.pixelsHigh,
+            let w = representations.first?.pixelsWide else {
+                return size
+        }
+        return NSSize(width: w, height: h)
+    }
+    
 }
